@@ -110,13 +110,15 @@ let db;
 
 // API Routers
 
-app.get("/api/dogs",async (req, res) =>{
-  try{const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
-  res.json(rows);}catch(e){
-    console.error("Error on db query...");
-    res.status(500).json({})
+app.get("/api/dogs", async (req, res) => {
+  try {
+    const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
+    res.json(rows);
+  } catch (e) {
+    console.error("Error on dogs db query...");
+    res.status(500).json({ error: "Failed to get dogs..." });
   }
-})
+});
 
 // Express routers
 app.use('/', indexRouter);
