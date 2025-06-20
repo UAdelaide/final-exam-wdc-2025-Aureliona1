@@ -8,7 +8,8 @@ FROM (
 		(
 		Users INNER JOIN WalkRatings
 		ON WalkRatings.walker_id = Users.user_id
-	)
+		)
 	INNER JOIN WalkRequests
 	ON WalkRequests.request_id = WalkRatings.request_id
-	) WHERE WalkRequests.status = 'completed';
+	)
+WHERE WalkRequests.status = 'completed';
