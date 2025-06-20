@@ -27,8 +27,6 @@ let db;
     });
 
     await connection.query("DROP DATABASE IF EXISTS DogWalkService;");
-
-    // Create the database if it doesn't exist
     await connection.query('CREATE DATABASE DogWalkService');
     await connection.end();
 
@@ -40,7 +38,6 @@ let db;
       database: 'DogWalkService'
     });
 
-    // Create a table if it doesn't exist
     await db.execute(`CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -95,7 +92,7 @@ let db;
 );`);
 
     // We know the tables are empty because we deleted the db earlier
-    
+
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
