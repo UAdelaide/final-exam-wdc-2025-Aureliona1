@@ -140,7 +140,8 @@ app.get("/api/walkers/summary", async (_, res) => {
     LEFT JOIN the previous join with the requests table to retain previous join
     filter the join on id and completed status.
     The completed status should already be implied if the ids match for a rating.
-    
+    Since ratings can only be added on completed walks, but incase there was an issue
+    with the checking, just make sure the 
     */
     // This is an absolute monster of a request
     const [rows] = await db.execute(`
