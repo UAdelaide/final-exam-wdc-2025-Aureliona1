@@ -3,4 +3,7 @@ SELECT
 Users.username AS walker_username,
 COUNT(WalkRatings.rating_id) AS total_ratings,
 AVG(WalkRatings.rating) AS average_rating,
-COUNT(WalkRequests.request_id) AS completed_walks FROM ((Users INNER JOIN WalkRatings ON WalkRatings.walker_id = Users.user_id) INNER JOIN WalkRequests ON WalkRequests.request_id = WalkRatings.request_id) WHERE WalkRequests.status = 'completed';
+COUNT(WalkRequests.request_id) AS completed_walks
+FROM (
+	(Users
+		INNER JOIN WalkRatings ON WalkRatings.walker_id = Users.user_id) INNER JOIN WalkRequests ON WalkRequests.request_id = WalkRatings.request_id) WHERE WalkRequests.status = 'completed';
