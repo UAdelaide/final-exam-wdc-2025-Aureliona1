@@ -26,6 +26,8 @@ let db;
       password: '' // Set your MySQL root password
     });
 
+
+    // Fresh start every time
     await connection.query("DROP DATABASE IF EXISTS DogWalkService;");
     await connection.query('CREATE DATABASE DogWalkService');
     await connection.end();
@@ -92,6 +94,7 @@ let db;
 );`);
 
     // We know the tables are empty because we deleted the db earlier
+    // So just insert stuff
 
 
   } catch (err) {
