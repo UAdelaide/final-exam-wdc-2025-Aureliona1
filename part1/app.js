@@ -111,7 +111,7 @@ let db;
 // API Routers
 
 app.get("/api/dogs",async (req, res) =>{
-  const [rows] = await db.execute("SELECT (Dogs.name, Dogs.size, Users")
+  const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN ")
 })
 
 // Express routers
