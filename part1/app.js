@@ -124,16 +124,8 @@ app.get("/api/dogs", async (_, res) => {
 
 app.get("/api/walkrequests/open", async (_, res) => {
   try {
-    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM ((WalkRequests INNER JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id) INNER JOIN Users ON Users.user_id = Dogs.owner_id);");
-    // Again, transform the result to match the format in the question
-    res.json(rows.map((r) => ({
-      request_id: r.request_id,
-      dog_name: r.name,
-      requested_time: r.requested_time,
-      duration_minutes: r.duration_minutes,
-      location: r.location,
-      owner_username: r.username
-    })));
+    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username AS owner_username FROM ((WalkRequests INNER JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id) INNER JOIN Users ON Users.user_id = Dogs.owner_id);");
+    res.json(rows);
   } catch (e) {
     console.error("Error on open walkrequest db query...");
     res.status(500).json({ error: "Failed to get open walkrequests..." });
