@@ -95,9 +95,11 @@ let db;
 
     // We know the tables are empty because we deleted the db earlier
     // So just insert stuff
-      await connection.query(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),(
+    await connection.query(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),(
 'abe','abe@abescompany.com','whatever_the_hash_for_abeisawesome123_is','owner
-'),('betterbob','bbob@bobsburgers.com','hash','walker');`)
+'),('betterbob','bbob@bobsburgers.com','hash','walker');`);
+
+      await connection.query()
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
