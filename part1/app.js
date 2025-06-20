@@ -115,8 +115,8 @@ app.get("/api/dogs", async (req, res) => {
   try {
     let [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
     // Transform key names to fit the question
-    rows = rows.map((r) => ({ dog_name: r.name, size: r.size, owner_username: r.username }));
-    res.json(rows);
+    rows =
+    res.json(rows.map((r) => ({ dog_name: r.name, size: r.size, owner_username: r.username })););
   } catch (e) {
     console.error("Error on dogs db query...");
     res.status(500).json({ error: "Failed to get dogs..." });
