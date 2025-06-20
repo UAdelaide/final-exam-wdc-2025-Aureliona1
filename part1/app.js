@@ -110,7 +110,9 @@ let db;
 
 // API Routers
 
-
+app.get("/api/dogs",async (req, res) =>{
+  
+})
 
 // Express routers
 app.use('/', indexRouter);
