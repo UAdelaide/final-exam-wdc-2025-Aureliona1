@@ -114,7 +114,7 @@ let db;
 app.get("/api/dogs", async (_, res) => {
   try {
     const [rows] = await db.execute("SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
-    res.json(rows.map((r) => ({ dog_name: r.name, size: r.size, owner_username: r.username })));
+    res.json(rows);
   } catch (e) {
     console.error("Error on dogs db query...");
     res.status(500).json({ error: "Failed to get dogs..." });
@@ -143,6 +143,7 @@ app.get("/api/walkers/summary", async (_, res) => {
       LEFT JOIN WalkRequests ON WalkRequests.request_id = WalkRatings.request_id AND WalkRequests.status = 'completed')
       GROUP BY Users.username;
       `);
+    res.json(rows);
   } catch (e) {
     console.error("Error getting walkers...");
     res.status(500).json({ error: "Error getting walkers..." });
