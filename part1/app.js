@@ -134,7 +134,8 @@ app.get("/api/walkrequests/open", async (_, res) => {
 app.get("/api/walkers/summary", async (_, res) => {
   try {
     /*
-    Quick block here so I can 
+    Quick block here for constructing the request:
+    SELECT column names with
     */
     // This is an absolute monster of a request
     const [rows] = await db.execute(`
