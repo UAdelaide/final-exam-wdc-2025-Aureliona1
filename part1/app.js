@@ -142,6 +142,7 @@ app.get("/api/walkers/summary", async (_, res) => {
     The completed status should already be implied if the ids match for a rating.
     Since ratings can only be added on completed walks, but incase there was an issue
     with the checking, just make sure the walks are actually completed.
+    
     GROUP BY username, since we are combining aggregated and non-aggregated columns.
     */
     // This is an absolute monster of a request
