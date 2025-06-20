@@ -95,9 +95,10 @@ let db;
 
     // We know the tables are empty because we deleted the db earlier
     // So just insert stuff
-    await db.execute(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),(
-'abe','abe@abescompany.com','whatever_the_hash_for_abeisawesome123_is','owner
-'),('betterbob','bbob@bobsburgers.com','hash','walker');`);
+    await db.execute(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),
+      ('abe','abe@abescompany.com','whatever_the_hash_for_abeisawesome123_is','owner'),
+      ('betterbob','bbob@bobsburgers.com','hash','walker');
+      `);
 
     await db.execute(`INSERT INTO Dogs (owner_id, name, size) VALUES ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Abe','large'),((SELECT user_id FROM Users WHERE username = 'abe'), 'Asbestos','small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Mini Abe','small');`);
 
