@@ -140,6 +140,8 @@ app.get("/api/walkrequests/open", async (_, res) => {
   }
 });
 
+app.get("/api/walkers/summary")
+
 // Express routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
