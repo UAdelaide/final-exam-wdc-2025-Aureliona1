@@ -111,7 +111,7 @@ let db;
 
 // API Routers
 
-app.get("/api/dogs", async (req, res) => {
+app.get("/api/dogs", async (_, res) => {
   try {
     const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
     // Transform key names to fit the question format
@@ -122,7 +122,9 @@ app.get("/api/dogs", async (req, res) => {
   }
 });
 
-app.get("/api/")
+app.get("/api/walkrequests/open", async (_, res) => {
+  
+})
 
 // Express routers
 app.use('/', indexRouter);
