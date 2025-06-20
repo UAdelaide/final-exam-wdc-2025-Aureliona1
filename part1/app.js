@@ -140,7 +140,11 @@ app.get("/api/walkrequests/open", async (_, res) => {
   }
 });
 
-app.get("/api/walkers/summary")
+app.get("/api/walkers/summary", async (_, res) =>{
+  try {
+
+  }
+})
 
 // Express routers
 app.use('/', indexRouter);
