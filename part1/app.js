@@ -111,6 +111,6 @@ let db;
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use("/api")
+app.use("/api", apiRouter);
 
 module.exports = app;
