@@ -142,10 +142,10 @@ app.get("/api/walkrequests/open", async (_, res) => {
 
 app.get("/api/walkers/summary", async (_, res) =>{
   try {
-
+    
   } catch(e){
     console.error("Error getting walkers...");
-    
+    res.status(500).json({error: "Error getting walkers..."});
   }
 })
 
