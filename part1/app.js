@@ -113,7 +113,7 @@ let db;
 
 app.get("/api/dogs", async (_, res) => {
   try {
-    const [rows] = await db.execute("SELECT Dogs.name AS dog_name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
+    const [rows] = await db.execute("SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
     res.json(rows.map((r) => ({ dog_name: r.name, size: r.size, owner_username: r.username })));
   } catch (e) {
     console.error("Error on dogs db query...");
