@@ -111,7 +111,7 @@ let db;
 // API Routers
 
 app.get("/api/dogs",async (req, res) =>{
-  const [rows] = await 
+  const [rows] = await db.
 })
 
 // Express routers
