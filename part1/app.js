@@ -124,7 +124,7 @@ app.get("/api/dogs", async (_, res) => {
 
 app.get("/api/walkrequests/open", async (_, res) => {
   try {
-    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM WalkRequests INNER JOIN (Dogs ")
+    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM WalkRequests INNER JOIN")
   }
 })
 
