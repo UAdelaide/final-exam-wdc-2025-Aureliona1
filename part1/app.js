@@ -129,7 +129,11 @@ app.get("/api/walkrequests/open", async (_, res) => {
     res.json(rows.map((r) => ({
       request_id: r.request_id,
       dog_name: r.name,
-      requested_time: r.requested_time, duration_minutes: r.duration_minutes, location: r.location, owner_username: r.username })));
+      requested_time: r.requested_time,
+      duration_minutes: r.duration_minutes,
+      location: r.location,
+      owner_username: r.username
+    })));
   } catch (e) {
     console.error("Error on open walkrequest db query...");
     res.status(500).json({ error: "Failed to get open walkrequests..." });
