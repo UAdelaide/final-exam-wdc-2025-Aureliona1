@@ -142,6 +142,7 @@ app.get("/api/walkrequests/open", async (_, res) => {
 
 app.get("/api/walkers/summary", async (_, res) => {
   try {
+    // This is an absolute monster of a request
     const [rows] = await db.execute(`
       SELECT Users.username AS walker_username,
       COUNT(WalkRatings.rating_id) AS total_ratings,
