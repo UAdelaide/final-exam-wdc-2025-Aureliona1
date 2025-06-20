@@ -123,7 +123,9 @@ app.get("/api/dogs", async (_, res) => {
 });
 
 app.get("/api/walkrequests/open", async (_, res) => {
-  
+  try {
+    const [rows] = await db.execute("SELECT Dogs.")
+  }
 })
 
 // Express routers
