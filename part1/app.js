@@ -49,7 +49,7 @@ let db;
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`);
 
-    await connection.query(`CREATE TABLE Dogs (
+    await db.execute(`CREATE TABLE Dogs (
     dog_id INT AUTO_INCREMENT PRIMARY KEY,
     owner_id INT NOT NULL,
     name VARCHAR(50) NOT NULL,
@@ -57,7 +57,7 @@ let db;
     FOREIGN KEY (owner_id) REFERENCES Users(user_id)
 );`);
 
-    await connection.query(`CREATE TABLE WalkRequests (
+    await db.execute(`CREATE TABLE WalkRequests (
     request_id INT AUTO_INCREMENT PRIMARY KEY,
     dog_id INT NOT NULL,
     requested_time DATETIME NOT NULL,
@@ -68,7 +68,7 @@ let db;
     FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
 );`);
 
-    await connection.query(`CREATE TABLE WalkApplications (
+    await db.execute(`CREATE TABLE WalkApplications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
     walker_id INT NOT NULL,
@@ -79,7 +79,7 @@ let db;
     CONSTRAINT unique_application UNIQUE (request_id, walker_id)
 );`);
 
-    await connection.query(`CREATE TABLE WalkRatings (
+    await db.execute(`CREATE TABLE WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
     walker_id INT NOT NULL,
@@ -95,13 +95,13 @@ let db;
 
     // We know the tables are empty because we deleted the db earlier
     // So just insert stuff
-    await connection.query(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),(
+    await db.execute(`INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123','alice@example.com','hashed123','owner'),('bobwalker','bob@example.com','hashed456','walker'),('carol123','carol@example.com','hashed789','owner'),(
 'abe','abe@abescompany.com','whatever_the_hash_for_abeisawesome123_is','owner
 '),('betterbob','bbob@bobsburgers.com','hash','walker');`);
 
-    await connection.query(`INSERT INTO Dogs (owner_id, name, size) VALUES ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Abe','large'),((SELECT user_id FROM Users WHERE username = 'abe'), 'Asbestos','small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Mini Abe','small');`);
+    await db.execute(`INSERT INTO Dogs (owner_id, name, size) VALUES ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Abe','large'),((SELECT user_id FROM Users WHERE username = 'abe'), 'Asbestos','small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Mini Abe','small');`);
 
-    await connection.query(`INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00',45,'Beachside Ave','accepted'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-10 08:30:00',20, 'West Beach', 'cancelled'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-10 08:45:00',30,'Brighton', 'open'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-11 08:45:00',30,'Hove','open');`);
+    await db.execute(`INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00',45,'Beachside Ave','accepted'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-10 08:30:00',20, 'West Beach', 'cancelled'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-10 08:45:00',30,'Brighton', 'open'),((SELECT dog_id FROM Dogs WHERE name = 'Abe'),'2025-06-11 08:45:00',30,'Hove','open');`);
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
@@ -111,7 +111,7 @@ let db;
 // API Routers
 
 app.get("/api/dogs",async (req, res) =>{
-  const [rows] = await db.
+  const [rows] = await db.execute()
 })
 
 // Express routers
