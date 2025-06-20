@@ -13,4 +13,4 @@ FROM (
 	ON WalkRequests.request_id = WalkRatings.request_id
 	)
 WHERE WalkRequests.status = 'completed'
-GROUP BY 
+GROUP BY Users.username;
