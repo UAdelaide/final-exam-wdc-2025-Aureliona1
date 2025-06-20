@@ -50,10 +50,18 @@ let db;
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`);
 
+    await connection.query(`CREATE TABLE Dogs (
+    dog_id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_id INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    size ENUM('small', 'medium', 'large') NOT NULL,
+    FOREIGN KEY (owner_id) REFERENCES Users(user_id)
+);`);
+
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
-      await db.execute(`INSERT INTO books (title, author) VALUES ('1984', 'George Orwell'), ('To Kill a Mockingbird', 'Harper Lee'), ('Brave New World', 'Aldous Huxley')`);
+      await db.execute(`INSERT INTO books(title, author) VALUES('1984', 'George Orwell'), ('To Kill a Mockingbird', 'Harper Lee'), ('Brave New World', 'Aldous Huxley')`);
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
@@ -63,4 +71,4 @@ let db;
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-module.exports = app;
+module.exports = app;;
