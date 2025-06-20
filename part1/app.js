@@ -139,7 +139,8 @@ app.get("/api/walkers/summary", async (_, res) => {
     LEFT JOIN the Users table with ratings to retain Users
     LEFT JOIN the previous join with the requests table to retain previous join
     filter the join on id and completed status.
-    The completed status should already be implied
+    The completed status should already be implied if the ids match for a rating.
+    
     */
     // This is an absolute monster of a request
     const [rows] = await db.execute(`
