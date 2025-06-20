@@ -111,7 +111,10 @@ let db;
 // API Routers
 
 app.get("/api/dogs",async (req, res) =>{
-  const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
+  try{const [rows] = await db.execute("SELECT Dogs.name, Dogs.size, Users.username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id;");
+  res.json(rows);}catch(e){
+    console.error("Error qu")
+  }
 })
 
 // Express routers
