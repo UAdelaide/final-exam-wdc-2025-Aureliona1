@@ -124,7 +124,7 @@ app.get("/api/dogs", async (_, res) => {
 
 app.get("/api/walkrequests/open", async (_, res) => {
   try {
-    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM ((WalkRequests INNER JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id) INNER JOIN Users ON Users.user_id = Dogs.owner_id);");
+    const [rows] = await db.execute("SELECT WalkRequests.request_id, Dogs.name AS dog_name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM ((WalkRequests INNER JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id) INNER JOIN Users ON Users.user_id = Dogs.owner_id);");
     // Again, transform the result to match the format in the question
     res.json(rows.map((r) => ({
       request_id: r.request_id,
