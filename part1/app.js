@@ -140,14 +140,15 @@ app.get("/api/walkrequests/open", async (_, res) => {
   }
 });
 
-app.get("/api/walkers/summary", async (_, res) =>{
+app.get("/api/walkers/summary", async (_, res) => {
   try {
-    const [rows] = await db.execute()
-  } catch(e){
+    const [rows] = await db.execute(`SELECT Users.username AS walker_username,
+      COUNT(WalkRatings.rating_id) AS total_ratings, AVG(WalkRatings.rating) AS average_rating, COUNT(WalkRequests.request_id) AS completed_walks FROM ((Users LEFT JOIN WalkRatings ON WalkRatings.walker_id = Users.user_id) LEFT JOIN WalkRequests ON WalkRequests.request_id = WalkRatings.request_id AND WalkRequests.status = 'completed') GROUP BY Users.username;`);
+  } catch (e) {
     console.error("Error getting walkers...");
-    res.status(500).json({error: "Error getting walkers..."});
+    res.status(500).json({ error: "Error getting walkers..." });
   }
-})
+});
 
 // Express routers
 app.use('/', indexRouter);
