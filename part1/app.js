@@ -99,7 +99,9 @@ let db;
 'abe','abe@abescompany.com','whatever_the_hash_for_abeisawesome123_is','owner
 '),('betterbob','bbob@bobsburgers.com','hash','walker');`);
 
-      await connection.query()
+    await connection.query(`INSERT INTO Dogs (owner_id, name, size) VALUES ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Abe','large'),((SELECT user_id FROM Users WHERE username = 'abe'), 'Asbestos','small'),((SELECT user_id FROM Users WHERE username = 'abe'),'Mini Abe','small');`);
+
+      await connection.query(``)
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
