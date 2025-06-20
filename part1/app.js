@@ -136,7 +136,7 @@ app.get("/api/walkers/summary", async (_, res) => {
     /*
     Quick block here for constructing the request:
     SELECT column names with renames
-    LEFT join the Users table
+    LEFT JOIN the Users table with ratings to retain 
     */
     // This is an absolute monster of a request
     const [rows] = await db.execute(`
