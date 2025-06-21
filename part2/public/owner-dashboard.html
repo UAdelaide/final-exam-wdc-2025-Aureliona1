@@ -50,8 +50,9 @@
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
-            <select v-model="form.dog_id" name="name" id="dog-names" class="form-"
-            <!-- <input v-model="form.dog_id" type="number" class="form-control" required> -->
+            <select v-model="form.dog_id" name="name" id="dog-names" class="form-control" required>
+
+            </select>
           </div>
           <div class="mb-3">
             <label class="form-label">Requested Date & Time</label>
@@ -97,21 +98,21 @@
 
   <script>
     const dog_name_map = {};
-      // Get this user's dogs
-    const nameDropDown = document.getElementById
+    // Get this user's dogs
+    const nameDropDown = document.getElementById;
     const req = new XMLHttpRequest();
-    req.onreadystatechange = () =>{
-      if(req.readyState == 4 && req.status == 200){
+    req.onreadystatechange = () => {
+      if (req.readyState == 4 && req.status == 200) {
         try {
-          const res = JSON.parse(req.response)
-          for(let i = 0; i < res.length; i++){
+          const res = JSON.parse(req.response);
+          for (let i = 0; i < res.length; i++) {
             dog_name_map[res[i].name] = res[i].dog_id;
           }
-        } catch(_){
-          console.log("Error parsing response...")
+        } catch (_) {
+          console.log("Error parsing response...");
         }
       }
-    }
+    };
     const { createApp, ref, onMounted } = Vue;
 
     createApp({
