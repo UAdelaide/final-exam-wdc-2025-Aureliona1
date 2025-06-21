@@ -102,7 +102,9 @@
     const req = new XMLHttpRequest();
     req.onreadystatechange = () =>{
       if(req.readyState == 4 && req.status == 200){
-        for(let i = 0; i < req.response.l)
+        try {
+          const res = JSON.parse(req.response)
+        } catch()
       }
     }
     const { createApp, ref, onMounted } = Vue;
