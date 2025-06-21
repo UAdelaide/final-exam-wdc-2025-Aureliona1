@@ -54,7 +54,7 @@
         }
       };
       req.open("POST", "/api/users/login", true);
-      req.send(JSON.stringify({ username: usr, password: pass }));
+      req.send({ username: usr, password: pass });
     })
   </script>
 
