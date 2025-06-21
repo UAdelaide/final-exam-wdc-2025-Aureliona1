@@ -63,14 +63,13 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post("/logout", async (req, res) => {
+router.get("/logout", async (req, res) => {
   req.session.destroy((e) => {
     if (e) {
       console.log(e);
     }
     res.clearCookie("connect.sid");
   });
-  res.sendStatus(200);
 });
 
 module.exports = router;

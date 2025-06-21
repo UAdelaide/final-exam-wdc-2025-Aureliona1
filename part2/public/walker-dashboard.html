@@ -29,7 +29,7 @@
       req.onreadystatechange = () => {
         console.log(req.readyState, req.response);
       };
-      req.open("POST", "/api/users/logout", true);
+      req.open("GET", "/api/users/logout", true);
       req.send();
     }
   </script>
