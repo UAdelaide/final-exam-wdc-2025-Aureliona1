@@ -67,11 +67,9 @@ router.post("/logout", async (req, res) => {
   req.session.destroy((e) => {
     if (e) {
       res.status(500);
-      return;
     }
     res.clearCookie("connect.sid");
   });
-  res.redirect("/");
 });
 
 module.exports = router;
