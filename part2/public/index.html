@@ -90,6 +90,10 @@
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
             dogTable.innerHTML += `<tr>
+              <td>${res[i].dog_id}</td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td></td>
               </tr>`
           }
