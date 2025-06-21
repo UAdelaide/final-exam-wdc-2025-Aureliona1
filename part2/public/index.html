@@ -27,7 +27,9 @@
   </div>
 
   <h2>All registered Dogs</h2>
-  <div id="dogs"></div>
+  <table>
+    
+  </table>
 
   <script>
     const { createApp } = Vue;
@@ -78,7 +80,7 @@
           const res = JSON.parse(req.response);
           for(let i = 0; i < res.length; i++){
             const imageReq = new XMLHttpRequest();
-            
+
           }
         } catch(_){
           console.error("Error getting dogs...")
