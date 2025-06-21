@@ -12,6 +12,8 @@
         const imgURL = ""
 
 
+        function getImg()
+
         const {createApp, ref} = Vue;
         const app = createApp({
             data() {
@@ -78,6 +80,6 @@
         <dd>Glenelg</dd>
     </dl>
 </div>
-<button type="button" >View Today's Dog</button>
+<button type="button" @click="getImg()">View Today's Dog</button>
 </body>
 </html>
