@@ -27,9 +27,7 @@
     function logout() {
       const req = new XMLHttpRequest();
       req.onreadystatechange = () => {
-        if (req.readyState == 4) {
-          location.href = "/index.html";
-        }
+        console.log()
       };
       req.open("POST", "/api/users/logout", true);
       req.send();
