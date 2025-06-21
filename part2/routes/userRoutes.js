@@ -32,6 +32,7 @@ router.get('/me', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
+  // @ts-ignore
   res.json(req.session.user);
 });
 
@@ -50,6 +51,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // @ts-ignore
     req.session.user = rows[0];
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
