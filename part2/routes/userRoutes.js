@@ -90,8 +90,11 @@ router.get("/dogs", async (req, res) => {
 
 router.get("/allDogs", async (req, res) => {
   try {
-    const [rows] = await db.query("SELECT")
+    const [rows] = await db.query("SELECT * FROM Dogs;");
+    res.json(rows);
+  } catch (_) {
+    res.sendStatus(500);
   }
-})
+});
 
 module.exports = router;
