@@ -9,14 +9,15 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script defer type="module">
         // Get the image with AJAX
+        const imgURL = ""
+
 
         const {createApp, ref} = Vue;
-
         const app = createApp({
             data() {
              return {
                 msg: "hello world",
-                imgURL: "bleh"
+                imgURL: imgURL
              }
             }
         });
