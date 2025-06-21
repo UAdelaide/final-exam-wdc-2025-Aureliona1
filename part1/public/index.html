@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Express</title>
-<!-- The question implies that only the html file should be supplied
+    <!-- The question implies that only the html file should be supplied
  So, I am including the stylesheet and scripts in the header here. -->
     <style>
     </style>
@@ -10,25 +11,25 @@
     <script defer type="module">
         // Get the image with AJAX
 
-        const {createApp, ref} = Vue;
+        const { createApp, ref } = Vue;
         const app = createApp({
             data() {
-             return {
-                msg: "hello world",
-                imgURL: imgURL
-             }
+                return {
+                    msg: "hello world",
+                    imgURL: ""
+                };
             },
             methods: {
-                getImg(){
-            const req = new XMLHttpRequest();
-            req.onreadystatechange = () =>{
-                if(req.readyState == 4 && req.status == 200){
-                    imgURL = req.response.message ?? "";
+                getImg() {
+                    const req = new XMLHttpRequest();
+                    req.onreadystatechange = () => {
+                        if (req.readyState == 4 && req.status == 200) {
+                            imgURL = req.response.message ?? "";
+                        }
+                    };
+                    req.open("GET", "https://dog.ceo/api/breeds/image/random");
+                    req.send();
                 }
-            }
-            req.open("GET","https://dog.ceo/api/breeds/image/random");
-            req.send();
-        }
             }
         });
         app.mount("#app");
@@ -38,56 +39,61 @@
 <body id="app">
     <h1>Dog of the day!</h1>
     <hr>
-<div id="dog-image">
-    <img src=" " alt="" :src="imgURL" title="Look at this pupper :)">
-</div>
-<hr>
-<div id="dog-desc">
-    <h3>A long-winded message about today's dog.</h3>
-    <p>Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog of today.
-        This paragraph is entirely subjective and provides absolutely no contextual or informative value.
-        It has been written for the sole purpose of taking up space and adding clutter to the page.
-        But it looks like a lot of information, which adds to the cognitive load of the page.
-        Here it is again.
-    </p>
-    <p>Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog of today.
-        This paragraph is entirely subjective and provides absolutely no contextual or informative value.
-        It has been written for the sole purpose of taking up space and adding clutter to the page.
-        But it looks like a lot of information, which adds to the cognitive load of the page.
-        Here it is again.</p>
-    <p>
-        Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog of today.
-        This paragraph is entirely subjective and provides absolutely no contextual or informative value.
-        It has been written for the sole purpose of taking up space and adding clutter to the page.
-        But it looks like a lot of information, which adds to the cognitive load of the page.
-        Here it is again.
-        Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog of today.
-        This paragraph is entirely subjective and provides absolutely no contextual or informative value.
-        It has been written for the sole purpose of taking up space and adding clutter to the page.
-        But it looks like a lot of information, which adds to the cognitive load of the page.
-        Don't worry, this is the last one. Time for some actual information.
-    </p>
-</div>
-<hr>
-<div id="dog-details">
-    <h3>Who is today's dog?</h3>
-    <dl>
-        <dt>Name:</dt>
-        <dd>Molly</dd>
-        <dt>Age:</dt>
-        <dd>12</dd>
-        <dt>Weight:</dt>
-        <dd>16kg</dd>
-        <dt>Favourite food:</dt>
-        <dd>Sausages</dd>
-        <dt>Owner:</dt>
-        <dd>John Smith</dd>
-        <dt>Location:</dt>
-        <dd>Unley</dd>
-        <dt>Favourite walking spot:</dt>
-        <dd>Glenelg</dd>
-    </dl>
-</div>
-<button type="button" onclick="getImg()">View Today's Dog</button>
+    <div id="dog-image">
+        <img src=" " alt="" :src="imgURL" title="Look at this pupper :)">
+    </div>
+    <hr>
+    <div id="dog-desc">
+        <h3>A long-winded message about today's dog.</h3>
+        <p>Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog
+            of today.
+            This paragraph is entirely subjective and provides absolutely no contextual or informative value.
+            It has been written for the sole purpose of taking up space and adding clutter to the page.
+            But it looks like a lot of information, which adds to the cognitive load of the page.
+            Here it is again.
+        </p>
+        <p>Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog
+            of today.
+            This paragraph is entirely subjective and provides absolutely no contextual or informative value.
+            It has been written for the sole purpose of taking up space and adding clutter to the page.
+            But it looks like a lot of information, which adds to the cognitive load of the page.
+            Here it is again.</p>
+        <p>
+            Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog
+            of today.
+            This paragraph is entirely subjective and provides absolutely no contextual or informative value.
+            It has been written for the sole purpose of taking up space and adding clutter to the page.
+            But it looks like a lot of information, which adds to the cognitive load of the page.
+            Here it is again.
+            Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the dog
+            of today.
+            This paragraph is entirely subjective and provides absolutely no contextual or informative value.
+            It has been written for the sole purpose of taking up space and adding clutter to the page.
+            But it looks like a lot of information, which adds to the cognitive load of the page.
+            Don't worry, this is the last one. Time for some actual information.
+        </p>
+    </div>
+    <hr>
+    <div id="dog-details">
+        <h3>Who is today's dog?</h3>
+        <dl>
+            <dt>Name:</dt>
+            <dd>Molly</dd>
+            <dt>Age:</dt>
+            <dd>12</dd>
+            <dt>Weight:</dt>
+            <dd>16kg</dd>
+            <dt>Favourite food:</dt>
+            <dd>Sausages</dd>
+            <dt>Owner:</dt>
+            <dd>John Smith</dd>
+            <dt>Location:</dt>
+            <dd>Unley</dd>
+            <dt>Favourite walking spot:</dt>
+            <dd>Glenelg</dd>
+        </dl>
+    </div>
+    <button type="button" onclick="getImg()">View Today's Dog</button>
 </body>
+
 </html>
