@@ -11,19 +11,21 @@
     <script defer type="module">
         // Get the image with AJAX
 
+        let imgURL = "";
+
         const { createApp, ref } = Vue;
         const app = createApp({
             data() {
                 return {
                     msg: "hello world",
-                    imgURL: ""
+                    imgURL: imgURL
                 };
             },
             methods: {
                 async getImg() {
                     const raw = await fetch("https://dog.ceo/api/breeds/image/random");
                     try {
-                        this.imgURL = (await raw.json()).message;
+                        imgURL = (await raw.json()).message;
                     } catch (_) {
                         console.error("Error parsing JSON...");
                     }
