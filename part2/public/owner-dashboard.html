@@ -105,6 +105,7 @@
       if (req.readyState == 4 && req.status == 200) {
         try {
           const res = JSON.parse(req.response);
+          console.log(res);
           for (let i = 0; i < res.length; i++) {
             nameDropDown.innerHTML += `<option value="${res[i].dog_id}">${res[i].name}</option>`;
           }
