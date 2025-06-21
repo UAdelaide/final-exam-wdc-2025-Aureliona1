@@ -73,7 +73,10 @@
     req.onreadystatechange = () =>{
       if(req.readyState == 4 && req.status == 200){
         try {
-          
+          const res = JSON.parse(req.response);
+          for(let i = 0; i < res.length; i++){
+            
+          }
         } catch(_){
           console.error("Error getting dogs...")
         }
