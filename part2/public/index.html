@@ -85,11 +85,10 @@
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200) {
         try {
-          const dogDiv = document.getElementById("dogs");
+          const dogTable= document.getElementById("dogs");
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            const imageReq = new XMLHttpRequest();
-            imageReq.on
+            dogTable.innerHTML +=
           }
         } catch (_) {
           console.error("Error getting dogs...");
