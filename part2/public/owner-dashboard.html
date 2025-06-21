@@ -97,13 +97,13 @@
   </div>
 
   <script>
-    // Get this user's dogs
-    const nameDropDown = document.getElementById("dog-names");
-    nameDropDown.innerHTML = "";
+    // Get this user's dog
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200) {
         try {
+          const nameDropDown = document.getElementById("dog-names");
+          nameDropDown.innerHTML = "";
           const res = JSON.parse(req.response);
           console.log(res);
           for (let i = 0; i < res.length; i++) {
