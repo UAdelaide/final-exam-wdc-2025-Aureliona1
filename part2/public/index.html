@@ -101,8 +101,9 @@
           console.error("Error getting dogs...");
         }
       }
-    }
-    req.open()
+    };
+    req.open("GET", "/api/users/allDogs");
+    req.send();
 
   </script>
 
