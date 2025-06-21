@@ -75,6 +75,10 @@ router.get("/logout", async (req, res) => {
 });
 
 router.get("/dogs", async (req, res) => {
+  if (!req.session.user) {
+    res.sendStatus(401);
+    return;
+  }
   const id = req.session.user.user_id;
   try {
     const [rows] = await db.query("SELECT * FROM Dogs WHERE owner_id = ?", [id]);
