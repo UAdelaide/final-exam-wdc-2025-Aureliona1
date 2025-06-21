@@ -113,6 +113,8 @@ input {
     border-radius: 10px;
     border: none;
     outline: 1px solid lightgray;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 textarea {
