@@ -16,7 +16,7 @@
         const app = createApp({
             data() {
                 return {
-                    imgURL: ""
+                    imgURL: "",
                     viewItems = true
                 };
             },
@@ -40,7 +40,7 @@
         <h1>Dog of the day!</h1>
         <hr>
         <div id="dog-image">
-            <p>Dog image will appear here, press the button below to view today's dog of the day.</p>
+            <p :visible="viewItems">Dog image will appear here, press the button below to view today's dog of the day.</p>
             <img alt="" :src="imgURL" title="Look at this pupper :)">
         </div>
         <hr>
