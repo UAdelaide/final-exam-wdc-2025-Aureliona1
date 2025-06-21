@@ -27,8 +27,8 @@
     function logout() {
       const req = new XMLHttpRequest();
       req.onreadystatechange = () => {
-        console.log("a");
         if (req.readyState == 4) {
+          console.log("a");
           location.href = "/index.html";
         }
       };
