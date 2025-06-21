@@ -111,7 +111,7 @@ button:hover {
 
 input {
     border-radius: 10px;
-    border: none;
+    border: 1px solid lightgray
 }
 
 textarea {
