@@ -19,6 +19,8 @@
                     imgURL = req.response.message ?? "";
                 }
             }
+            req.open("GET","https://dog.ceo/api/breeds/image/random");
+            req.send();
         }
 
         const {createApp, ref} = Vue;
