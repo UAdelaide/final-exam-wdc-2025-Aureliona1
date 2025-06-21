@@ -69,6 +69,7 @@ router.get("/logout", async (req, res) => {
       console.log(e);
     }
     res.clearCookie("connect.sid");
+    res.sendStatus(200);
   });
 });
 
