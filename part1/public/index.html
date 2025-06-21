@@ -11,7 +11,7 @@
         const app = createApp({
             data() {
              return {
-                msg: "hello world"
+                msg: "hello world",
                 imgURL: "bleh"
              }
             }
@@ -22,7 +22,8 @@
 
 <body id="app">
 <div id="dog-image">
-    <img src=" " alt="" :src="" title="Look at this pupper :)">
+    <img src=" " alt="" :src="imgURL" title="Look at this pupper :)">
+
 </div>
 </body>
 </html>
