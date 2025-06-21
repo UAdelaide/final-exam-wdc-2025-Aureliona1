@@ -94,7 +94,7 @@
               <td>${res[i].name}</td>
               <td>${res[i].size}</td>
               <td>${res[i].owner_id}</td>
-              <td>${(await (await fetch("https://dog.ceo/api/breeds/image/random")).json()).message}</td>
+              <td><img src="${(await (await fetch("https://dog.ceo/api/breeds/image/random")).json()).message}"></td>
               </tr>`;
           }
         } catch (_) {
