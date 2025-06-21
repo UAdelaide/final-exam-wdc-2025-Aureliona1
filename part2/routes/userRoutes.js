@@ -29,8 +29,10 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/me', (req, res) => {
+  // @ts-ignore
   if (!req.session.user) {
-    return res.status(401).json({ error: 'Not logged in' });
+    res.status(401).json({ error: 'Not logged in' });
+    return;
   }
   // @ts-ignore
   res.json(req.session.user);
@@ -46,6 +48,7 @@ router.post('/login', async (req, res) => {
       WHERE email = ? AND password_hash = ?
     `, [email, password]);
 
+    // @ts-ignore
     if (rows.length === 0) {
       res.status(401).json({ error: 'Invalid credentials' });
       return;
