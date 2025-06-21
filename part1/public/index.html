@@ -25,13 +25,12 @@
                     const raw = await fetch("https://dog.ceo/api/breeds/image/random");
                     try {
                         this.imgURL = (await raw.json()).message;
-                        hideItems = true;
+                        this.hideItems = true;
                     } catch (_) {
                         console.error("Error parsing JSON...");
                     }
                 }
             }
-            comput
         }).mount("#app");
 
     </script>
