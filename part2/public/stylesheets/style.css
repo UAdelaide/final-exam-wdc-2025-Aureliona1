@@ -110,7 +110,7 @@ button:hover {
 }
 
 form {
-    display: block;
+    display:list-item;
 }
 
 input {
