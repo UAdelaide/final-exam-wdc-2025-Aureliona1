@@ -97,7 +97,6 @@
   </div>
 
   <script>
-    const dog_name_map = {};
     // Get this user's dogs
     const nameDropDown = document.getElementById("dog-names");
     nameDropDown.innerHTML = ""
@@ -107,8 +106,7 @@
         try {
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            dog_name_map[res[i].name] = res[i].dog_id;
-            nameDropDown.innerHTML += `<option >
+            nameDropDown.innerHTML += `<option >`
           }
         } catch (_) {
           console.log("Error parsing response...");
@@ -141,7 +139,6 @@
 
         async function submitWalkRequest() {
           try {
-            form.value.dog_id = dog_name_map[form.value.dog_id];
             const res = await fetch('/api/walks', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
