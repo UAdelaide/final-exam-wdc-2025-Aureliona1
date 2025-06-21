@@ -48,7 +48,9 @@
           if (req.status !== 200) {
             location.reload();
           }
-          console.log("")
+          else {
+            console.log("Logged in");
+          }
         }
       };
       req.open("POST", "/api/user/login");
