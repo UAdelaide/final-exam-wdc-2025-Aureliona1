@@ -76,7 +76,8 @@ router.get("/logout", async (req, res) => {
 
 router.get("/dogs", async (req, res) => {
   const id = req.session.user.user_id;
-  const [rows] = await db.query("SELECT * FROM ")
+  const [rows] = await db.query("SELECT * FROM Dogs WHERE owner_id = ?", [id]);
+  if(rows.length == 0){}
 })
 
 module.exports = router;
