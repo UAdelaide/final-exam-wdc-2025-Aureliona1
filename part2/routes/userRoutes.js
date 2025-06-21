@@ -75,7 +75,7 @@ router.get("/logout", async (req, res) => {
 });
 
 router.get("/dogs", async (req, res) => {
-  
+  const req.session.user
 })
 
 module.exports = router;
