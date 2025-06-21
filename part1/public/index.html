@@ -20,15 +20,8 @@
                 };
             },
             methods: {
-                getImg() {
-                    const req = new XMLHttpRequest();
-                    req.onreadystatechange = function () {
-                        if (req.readyState == 4 && req.status == 200) {
-                            this.imgURL = JSON.parse(req.responseText).message ?? "";
-                        }
-                    };
-                    req.open("GET", "https://dog.ceo/api/breeds/image/random");
-                    req.send();
+                async getImg() {
+                    const
                 }
             }
         });
