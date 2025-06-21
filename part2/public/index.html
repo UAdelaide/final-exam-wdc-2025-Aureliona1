@@ -26,6 +26,7 @@
     </form>
   </div>
 
+  <h2>All registered Dogs</h2>
   <div id="dogs"></div>
 
   <script>
@@ -76,7 +77,7 @@
           const dogDiv = document.getElementById("dogs")
           const res = JSON.parse(req.response);
           for(let i = 0; i < res.length; i++){
-
+            const imageReq
           }
         } catch(_){
           console.error("Error getting dogs...")
