@@ -109,6 +109,11 @@ button:hover {
     margin-bottom: 0.5em;
 }
 
+input {
+    border-radius: 10px;
+    border: none;
+}
+
 textarea {
     min-height: 20vh;
     padding: 0.5em;
