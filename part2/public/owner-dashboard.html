@@ -99,7 +99,7 @@
   <script>
     const dog_name_map = {};
     // Get this user's dogs
-    const nameDropDown = document.getElementById;
+    const nameDropDown = document.getElementById("dog-names");
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200) {
@@ -107,6 +107,7 @@
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
             dog_name_map[res[i].name] = res[i].dog_id;
+            nameDropDown
           }
         } catch (_) {
           console.log("Error parsing response...");
