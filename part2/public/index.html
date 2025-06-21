@@ -39,19 +39,19 @@
     document.addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = document.getElementById("login");
-      const formData = new FormData(form)
+      const formData = new FormData(form);
       const usr = formData.get("username");
       const pass = formData.get("password");
       const req = new XMLHttpRequest();
-      req.onreadystatechange = () =>{
-        if(req.readyState == 4){
-          if(req.status !== 200){
+      req.onreadystatechange = () => {
+        if (req.readyState == 4) {
+          if (req.status !== 200) {
             location.reload();
           }
         }
-      }
-      req.open("POST","/api/user/login");
-      req.send(JSON.stringify())
+      };
+      req.open("POST", "/api/user/login");
+      req.send(JSON.stringify({ email: usr, password: pass }));
     })
   </script>
 
