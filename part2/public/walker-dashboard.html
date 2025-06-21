@@ -26,12 +26,13 @@
   <script defer>
     function logout() {
       const req = new XMLHttpRequest();
-      req.onreadystatechange = () =>{
-        if(req.readyState == 4){
-          location.href = "/index.html"
+      req.onreadystatechange = () => {
+        if (req.readyState == 4) {
+          location.href = "/index.html";
         }
-      }
-      
+      };
+      req.open("POST", "/api/users/logout", true);
+      req.send();
     }
   </script>
 </head>
