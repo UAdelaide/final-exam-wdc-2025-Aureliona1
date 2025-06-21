@@ -66,8 +66,10 @@ router.post('/login', async (req, res) => {
 router.post("/logout", async (req, res) => {
   req.session.destroy((e) => {
     if(e) {
-      res.status(500)
+      res.status(500);
+
     }
+    res.clearCookie()
   })
 })
 
