@@ -77,7 +77,8 @@
           const dogDiv = document.getElementById("dogs")
           const res = JSON.parse(req.response);
           for(let i = 0; i < res.length; i++){
-            const imageReq
+            const imageReq = new XMLHttpRequest();
+            
           }
         } catch(_){
           console.error("Error getting dogs...")
