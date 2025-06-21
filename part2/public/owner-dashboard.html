@@ -101,7 +101,9 @@
     const nameDropDown = document.getElementById
     const req = new XMLHttpRequest();
     req.onreadystatechange = () =>{
-
+      if(req.readyState == 4 && req.status == 200){
+        
+      }
     }
     const { createApp, ref, onMounted } = Vue;
 
