@@ -67,11 +67,10 @@ router.post("/logout", async (req, res) => {
   req.session.destroy((e) => {
     if (e) {
       console.log(e);
-      res.sendStatus(500);
     }
     res.clearCookie("connect.sid");
   });
-  res.sendStatus(200);
+  res.se
 });
 
 module.exports = router;
