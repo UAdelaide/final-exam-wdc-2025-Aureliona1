@@ -106,7 +106,7 @@
         try {
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            nameDropDown.innerHTML += `<option >`
+            nameDropDown.innerHTML += `<option value="${res[i].dog_id}"></option>`
           }
         } catch (_) {
           console.log("Error parsing response...");
