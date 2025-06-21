@@ -86,9 +86,10 @@
       if (req.readyState == 4 && req.status == 200) {
         try {
           const dogTable= document.getElementById("dogs");
+          dogTable.innerHTML = ""
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            dogTable.innerHTML +=
+            dogTable.innerHTML += `<tr></tr>`
           }
         } catch (_) {
           console.error("Error getting dogs...");
