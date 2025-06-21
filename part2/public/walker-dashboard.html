@@ -70,8 +70,10 @@
   <script>
     // Get user id
 
-    async function getCurrentUser(){
-      return ((await fetch("/api/users/me")).json())
+    async function getCurrentUser() {
+      try { return (await (await fetch("/api/users/me")).json()).user_id; } catch (_) {
+        console.error("Error getting user id...");
+      }
     }
 
     const { createApp, ref, onMounted } = Vue;
