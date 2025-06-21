@@ -40,6 +40,8 @@
       e.preventDefault();
       const form = document.getElementById("login");
       const formData = new FormData(form)
+      const usr = formData.get("username");
+      const pass = formData.get("password");
       
     })
   </script>
