@@ -50,7 +50,8 @@
           }
         }
       }
-      req.open("/api/user/login")
+      req.open("POST","/api/user/login");
+      req.send()
     })
   </script>
 
