@@ -46,10 +46,11 @@
       req.onreadystatechange = () =>{
         if(req.readyState == 4){
           if(req.status !== 200){
-            location.reload()
+            location.reload();
           }
         }
       }
+      req.open("/api/user/login")
     })
   </script>
 
