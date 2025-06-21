@@ -24,7 +24,7 @@
                     const req = new XMLHttpRequest();
                     req.onreadystatechange = () => {
                         if (req.readyState == 4 && req.status == 200) {
-                            imgURL = req.response.message ?? "";
+                            this.imgURL = req.response.message ?? "";
                         }
                     };
                     req.open("GET", "https://dog.ceo/api/breeds/image/random");
