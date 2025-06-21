@@ -109,6 +109,10 @@ button:hover {
     margin-bottom: 0.5em;
 }
 
+form {
+    display: block;
+}
+
 input {
     border-radius: 10px;
     border: 1px solid lightgray
