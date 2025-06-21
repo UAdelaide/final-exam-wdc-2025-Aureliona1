@@ -100,9 +100,9 @@
                 <dd>Glenelg</dd>
             </dl>
         </div>
-        <div id="button-div">
+        <div id="button-div" :hidden="hideItems">
             <p>I bet you wanted to actually see the dog of the day, well now you can. All the way down here.</p>
-            <button :hidden="hideItems" type="button" @click="getImg">View Today's Dog</button>
+            <button type="button" @click="getImg">View Today's Dog</button>
         </div>
     </div>
 </body>
