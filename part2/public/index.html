@@ -46,7 +46,7 @@
       req.onreadystatechange = () => {
         if (req.readyState == 4) {
           if (req.status !== 200) {
-            location.reload();
+            console.log("Failed");
           }
           else {
             console.log("Logged in");
