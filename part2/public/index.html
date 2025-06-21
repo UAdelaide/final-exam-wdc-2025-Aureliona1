@@ -49,7 +49,7 @@
             location.reload();
           }
           else {
-            getDash(req.response.user.role);
+            getDash(JSON.parse(req.response).user.role);
           }
         }
       };
