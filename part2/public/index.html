@@ -29,12 +29,15 @@
   <h2>All registered Dogs</h2>
   <table>
     <thead>
-      <th>Dog ID</th>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Owner ID</th>
-      <th>Photo</th>
+      <tr>
+        <th>Dog ID</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Owner ID</th>
+        <th>Photo</th>
+      </tr>
     </thead>
+    <tbody id="dogs"></tbody>
   </table>
 
   <script>
@@ -79,17 +82,17 @@
 
     // Get all dogs
     const req = new XMLHttpRequest();
-    req.onreadystatechange = () =>{
-      if(req.readyState == 4 && req.status == 200){
+    req.onreadystatechange = () => {
+      if (req.readyState == 4 && req.status == 200) {
         try {
-          const dogDiv = document.getElementById("dogs")
+          const dogDiv = document.getElementById("dogs");
           const res = JSON.parse(req.response);
-          for(let i = 0; i < res.length; i++){
+          for (let i = 0; i < res.length; i++) {
             const imageReq = new XMLHttpRequest();
 
           }
-        } catch(_){
-          console.error("Error getting dogs...")
+        } catch (_) {
+          console.error("Error getting dogs...");
         }
       }
     }
