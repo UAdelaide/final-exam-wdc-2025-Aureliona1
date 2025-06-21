@@ -99,20 +99,21 @@
   <script>
     // Get this user's dogs
     const nameDropDown = document.getElementById("dog-names");
-    nameDropDown.innerHTML = ""
+    nameDropDown.innerHTML = "";
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200) {
         try {
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            nameDropDown.innerHTML += `<option value="${res[i].dog_id}"></option>`
+            nameDropDown.innerHTML += `<option value="${res[i].dog_id}">${res[i].name}</option>`;
           }
         } catch (_) {
           console.log("Error parsing response...");
         }
       }
     };
+    req.open()
     const { createApp, ref, onMounted } = Vue;
 
     createApp({
