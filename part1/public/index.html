@@ -23,6 +23,7 @@
             background-color: #ddd;
             margin: auto;
             padding: 10px;
+            outline: ;
         }
 
         p {
@@ -69,13 +70,13 @@
         <div>
             <h1>Dog of the day!</h1>
         </div>
-        <hr>
+
         <div id="dog-image">
             <p :hidden="hideItems">Dog image will appear here, press the button below to view today's dog of the day.
             </p>
             <img alt="" :src="imgURL" title="Look at this pupper :)">
         </div>
-        <hr>
+
         <div id="dog-desc">
             <h3>A long-winded message about today's dog.</h3>
             <p>Today's dog is a very special dog. This dog has done many wonderful things and truly deserves to be the
@@ -110,7 +111,7 @@
                 Don't worry, this is the last one. Time for some actual information.
             </p>
         </div>
-        <hr>
+
         <div id="dog-details">
             <h3>Who is today's dog?</h3>
             <dl>
