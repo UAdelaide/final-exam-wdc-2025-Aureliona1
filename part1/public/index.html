@@ -25,7 +25,7 @@
                     const raw = await fetch("https://dog.ceo/api/breeds/image/random");
                     try {
                         this.imgURL = (await raw.json()).message;
-                        viewItems = false
+                        viewItems = false;
                     } catch (_) {
                         console.error("Error parsing JSON...");
                     }
@@ -41,7 +41,8 @@
         <h1>Dog of the day!</h1>
         <hr>
         <div id="dog-image">
-            <p :visible="viewItems">Dog image will appear here, press the button below to view today's dog of the day.</p>
+            <p :visible="viewItems">Dog image will appear here, press the button below to view today's dog of the day.
+            </p>
             <img alt="" :src="imgURL" title="Look at this pupper :)">
         </div>
         <hr>
@@ -101,7 +102,7 @@
         </div>
         <div id="button-div">
             <p>I bet you wanted to actually see the dog of the day, well now you can. All the way down here.</p>
-            <button type="button" @click="getImg">View Today's Dog</button>
+            <button :visible="viewItems" type="button" @click="getImg">View Today's Dog</button>
         </div>
     </div>
 </body>
