@@ -17,7 +17,7 @@
             data() {
                 return {
                     imgURL: "",
-                    viewItems = true
+                    viewItems: true
                 };
             },
             methods: {
@@ -25,6 +25,7 @@
                     const raw = await fetch("https://dog.ceo/api/breeds/image/random");
                     try {
                         this.imgURL = (await raw.json()).message;
+                        viewItems = false
                     } catch (_) {
                         console.error("Error parsing JSON...");
                     }
