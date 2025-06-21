@@ -71,8 +71,7 @@
     // Get user id
 
     async function getCurrentUser(){
-      let id = 0;
-      
+      return ((await fetch("/api/users/me")).json())
     }
 
     const { createApp, ref, onMounted } = Vue;
