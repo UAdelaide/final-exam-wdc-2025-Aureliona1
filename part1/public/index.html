@@ -22,7 +22,9 @@
             methods: {
                 async getImg() {
                     const raw = await fetch("https://dog.ceo/api/breeds/image/random");
-                    try {}
+                    try {
+                        this.imgURL = (await raw.json())
+                    }
                 }
             }
         });
