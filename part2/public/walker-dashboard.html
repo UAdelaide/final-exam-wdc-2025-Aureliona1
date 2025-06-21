@@ -26,7 +26,12 @@
   <script defer>
     function logout() {
       const req = new XMLHttpRequest();
-      req.on
+      req.onreadystatechange = () =>{
+        if(req.readyState == 4){
+          location.href = "/index.html"
+        }
+      }
+      
     }
   </script>
 </head>
