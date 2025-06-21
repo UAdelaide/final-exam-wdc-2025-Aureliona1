@@ -53,8 +53,8 @@
           }
         }
       };
-      req.open("POST", "/api/users/login",true);
-      req.setRequestHeader()
+      req.open("POST", "/api/users/login", true);
+      req.setRequestHeader("Content-Type", "application/json");
       req.send(JSON.stringify({ username: usr, password: pass }));
     })
   </script>
