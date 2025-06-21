@@ -9,19 +9,6 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script defer type="module">
         // Get the image with AJAX
-        let imgURL = ""
-
-
-        function getImg(){
-            const req = new XMLHttpRequest();
-            req.onreadystatechange = () =>{
-                if(req.readyState == 4 && req.status == 200){
-                    imgURL = req.response.message ?? "";
-                }
-            }
-            req.open("GET","https://dog.ceo/api/breeds/image/random");
-            req.send();
-        }
 
         const {createApp, ref} = Vue;
         const app = createApp({
@@ -32,7 +19,16 @@
              }
             },
             methods: {
-                
+                getImg(){
+            const req = new XMLHttpRequest();
+            req.onreadystatechange = () =>{
+                if(req.readyState == 4 && req.status == 200){
+                    imgURL = req.response.message ?? "";
+                }
+            }
+            req.open("GET","https://dog.ceo/api/breeds/image/random");
+            req.send();
+        }
             }
         });
         app.mount("#app");
