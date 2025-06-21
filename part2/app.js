@@ -9,11 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
-	// @ts-ignore
-	secret: process.env.SECRET_KEY,
-	resave: false,
-	saveUninitialized: false,
-	cookie: { secure: false }
+  // @ts-ignore
+  secret: "secret123",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
 }));
 
 
