@@ -71,7 +71,13 @@
     // Get all dogs
     const req = new XMLHttpRequest();
     req.onreadystatechange = () =>{
-      if(req.readyState == 4)
+      if(req.readyState == 4 && req.status == 200){
+        try {
+          
+        } catch(_){
+          console.error("Error getting dogs...")
+        }
+      }
     }
 
   </script>
