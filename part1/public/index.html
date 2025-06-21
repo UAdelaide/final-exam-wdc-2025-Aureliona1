@@ -24,6 +24,7 @@
                     const req = new XMLHttpRequest();
                     req.onreadystatechange = () => {
                         if (req.readyState == 4 && req.status == 200) {
+                            console.log("Here");
                             this.imgURL = JSON.parse(req.responseText).message ?? "";
                         }
                     };
