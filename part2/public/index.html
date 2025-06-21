@@ -53,7 +53,7 @@
           }
         }
       };
-      req.open("POST", "/api/user/login");
+      req.open("POST", "/api/users/login");
       req.send(JSON.stringify({ username: usr, password: pass }));
     })
   </script>
