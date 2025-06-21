@@ -129,6 +129,7 @@
 
         async function submitWalkRequest() {
           try {
+            form.value.dog_id = dog_name_map[form.value.dog_id];
             const res = await fetch('/api/walks', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
