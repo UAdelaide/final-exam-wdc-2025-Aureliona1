@@ -82,7 +82,7 @@
 
     // Get all dogs
     const req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
+    req.onreadystatechange = async () => {
       if (req.readyState == 4 && req.status == 200) {
         try {
           const dogTable= document.getElementById("dogs");
@@ -94,7 +94,7 @@
               <td>${res[i].name}</td>
               <td>${res[i].size}</td>
               <td>${res[i].owner_id}</td>
-              <td>${await }</td>
+              <td>${await fetch()}</td>
               </tr>`
           }
         } catch (_) {
