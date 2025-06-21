@@ -94,7 +94,7 @@
           dogTable.innerHTML = "";
           const res = JSON.parse(req.response);
           for (let i = 0; i < res.length; i++) {
-            dogTable.innerHTML += `<tr${i%2?}>
+            dogTable.innerHTML += `<tr${i%2?'style='':""}>
               <td>${res[i].dog_id}</td>
               <td>${res[i].name}</td>
               <td>${res[i].size}</td>
